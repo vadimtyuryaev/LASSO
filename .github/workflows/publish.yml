@@ -1,12 +1,66 @@
-- name: Convert notebooks to HTML (no execution)
-  run: |
-    mkdir -p site
-    find src/notebooks -name "*.ipynb" -print0 | while IFS= read -r -d '' nb; do
-      jupyter nbconvert --to html --output-dir site "$nb"
-    done
-    echo "<!doctype html><meta charset='utf-8'><title>Notebooks</title><h1>Published Notebooks</h1><ul>" > site/index.html
-    for f in site/*.html; do
-      b=$(basename "$f"); [ "$b" = "index.html" ] && continue
-      echo "<li><a href='$b'>$b</a></li>" >> site/index.html
-    done
-    echo "</ul>" >> site/index.html
+name: Publish Notebooks to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install minimal tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install jupyter nbconvert
+
+      - name: Build static site (convert notebooks without execution)
+        run: |
+          mkdir -p site
+          find src/notebooks -name "*.ipynb" -print0 | while IFS= read -r -d '' nb; do
+            jupyter nbconvert --to html --output-dir site "$nb"
+          done
+          {
+            echo "<!doctype html><meta charset='utf-8'><title>Notebooks</title><h1>Published Notebooks</h1><ul>"
+            for f in site/*.html; do
+              b=$(basename "$f"); [ "$b" = "index.html" ] && continue
+              echo "<li><a href='$b'>$b</a></li>"
+            done
+            echo "</ul>"
+          } > site/index.html
+          touch site/.nojekyll
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

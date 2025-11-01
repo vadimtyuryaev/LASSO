@@ -34,7 +34,7 @@ The notebook bridges theoretical foundations with empirical experimentation, ser
 - Explore the **geometry of constraint regions** in two-dimensional parameter space.
 - Derive and analyze the OLS, LASSO, and Ridge estimators from **first principles**.
 - Learn why standard hypothesis testing **assumptions break down** in the context of LASSO regularization and model selection.
-- Learn how modern optimization and **Bayesian** search methods automate regularized model selection . 
+- Learn how modern **Bayesian optimization ** methods automate regularized model selection. 
 
 ---
 
@@ -57,8 +57,8 @@ The rendered notebook is publicly available at:
 
 ## Suggested References
 
-- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning.* Springer. 
-- Hoerl, A. E., & Kennard, R. W. (1970). *Ridge Regression: Biased Estimation for Nonorthogonal Problems.* *Technometrics*, **12(1)**, 55–67.   
+- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning*. Springer. 
+- Hoerl, A. E., & Kennard, R. W. (1970). *Ridge Regression: Biased Estimation for Nonorthogonal Problems*. *Technometrics*, **12(1)**, 55–67.   
 - Lee, J. D., Sun, D. L., Sun, Y., & Taylor, J. E. (2016). *Exact Post-Selection Inference, with Application to the LASSO*. *Annals of Statistics*, **44(3)**, 907–927.
 - Tibshirani, R. (1996). *Regression Shrinkage and Selection via the Lasso*. *Journal of the Royal Statistical Society: Series B*, **58(1)**, 267–288.  
-- Taylor, J., & Tibshirani, R. J. (2018). P8ost-Selection Inference for ℓ₁-Penalized Likelihood Models*. *Canadian Journal of Statistics*, **46(1)**, 41–61.
+- Taylor, J., & Tibshirani, R. J. (2018). *Post-Selection Inference for ℓ₁-Penalized Likelihood Models*. *Canadian Journal of Statistics*, **46(1)**, 41–61.
