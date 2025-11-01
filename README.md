@@ -42,7 +42,7 @@ The notebook bridges theoretical foundations with empirical experimentation, ser
 
 The rendered notebook is publicly available at:
 
-👉 [**vadimtyuryaev.github.io/LASSO**](https://vadimtyuryaev.github.io/LASSO/)
+[**vadimtyuryaev.github.io/LASSO**](https://vadimtyuryaev.github.io/LASSO/L1_L2_Regression.html)
 
 ---
 
@@ -51,7 +51,7 @@ The rendered notebook is publicly available at:
 | Package | Description |
 |----------|--------------|
 | [**selectiveInference**](https://cran.r-project.org/web/packages/selectiveInference/index.html) | Performs **post-selection inference** for models such as the LASSO, leveraging the *polyhedral lemma* framework. Enables valid hypothesis testing and confidence interval estimation after variable selection. |
-| [**RegrCoeffsExplorer**](https://cran.r-project.org/web/packages/RegrCoeffsExplorer/index.html) | Provides **interactive visualization of regression coefficients and confidence intervals**, allowing intuitive exploration of model stability and the effects of regularization. |
+| [**RegrCoeffsExplorer**](https://cran.r-project.org/web/packages/RegrCoeffsExplorer/index.html) | Provides **efficient visualization of regularized regression coefficients and confidence intervals**, allowing intuitive exploration of model stability and the effects of regularization. |
 
 ---
 
